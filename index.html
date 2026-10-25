@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#6757e8">
+  <meta name="description" content="CodeNova Notes — a simple place to capture and organize your thoughts.">
+  <title>CodeNova Notes</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">N</div>
+        <div><strong>codenova</strong><span>NOTES WORKSPACE</span></div>
+      </div>
+      <div class="sidebar-label">WORKSPACE</div>
+      <button class="nav-item active" id="allNotesNav"><span class="nav-icon">▤</span> All notes <span class="nav-count" id="noteCount">0</span></button>
+      <div class="sidebar-tip">
+        <div class="tip-icon">✦</div>
+        <strong>A little note goes a long way.</strong>
+        <p>Keep ideas, reminders, and thoughts in one calm space.</p>
+      </div>
+      <div class="sidebar-footer"><span class="status-dot"></span> Your notes are saved locally</div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="breadcrumb">Workspace <span>/</span> <strong>All notes</strong></div>
+        <div class="top-actions"><span class="avatar">CN</span></div>
+      </header>
+
+      <section class="page-heading">
+        <div>
+          <p class="eyebrow">YOUR PERSONAL SPACE</p>
+          <h1>All notes<span class="heading-dot">.</span></h1>
+          <p class="subtitle">Capture what's on your mind. Find it when you need it.</p>
+        </div>
+        <button class="primary-button" id="newNoteBtn"><span>＋</span> New note</button>
+      </section>
+
+      <section class="toolbar">
+        <label class="search-box" for="searchInput"><span class="search-icon">⌕</span><input id="searchInput" type="search" placeholder="Search notes..." autocomplete="off"><kbd>⌘ K</kbd></label>
+        <div class="sort-label"><span class="sort-dot"></span> Recently updated</div>
+      </section>
+
+      <div class="message" id="message" role="status" aria-live="polite"></div>
+      <section class="notes-grid" id="notesGrid" aria-live="polite"></section>
+      <section class="empty-state" id="emptyState">
+        <div class="empty-art"><span>✎</span></div>
+        <h2>Your page is still blank</h2>
+        <p>Create your first note and start collecting your ideas.</p>
+        <button class="primary-button" id="emptyNewNoteBtn">＋ Create your first note</button>
+      </section>
+      <footer class="page-footer"><span>Made for your ideas</span><span>CodeNova Notes <b>•</b> v1.0</span></footer>
+    </main>
+  </div>
+
+  <dialog id="noteDialog" class="note-dialog">
+    <form id="noteForm">
+      <div class="dialog-header"><div><p class="eyebrow" id="dialogEyebrow">NEW NOTE</p><h2 id="dialogTitle">Create a note</h2></div><button type="button" class="icon-button" id="closeDialog" aria-label="Close">×</button></div>
+      <label class="field-label" for="titleInput">Title</label>
+      <input id="titleInput" class="title-input" maxlength="120" placeholder="Give your note a title..." required>
+      <label class="field-label" for="contentInput">Your note</label>
+      <textarea id="contentInput" rows="8" maxlength="10000" placeholder="Start writing here..."></textarea>
+      <div class="dialog-footer"><span id="charCount">0 characters</span><div><button type="button" class="secondary-button" id="cancelBtn">Cancel</button><button type="submit" class="primary-button" id="saveBtn">Save note</button></div></div>
+    </form>
+  </dialog>
+  <script src="/static/app.js"></script>
+</body>
+</html>
